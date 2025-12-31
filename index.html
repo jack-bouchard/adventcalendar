@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>January</title>
+  <style>
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: linear-gradient(135deg, #f8cdda, #1d2b64);
+      color: white;
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .box {
+      max-width: 600px;
+      background: rgba(0,0,0,0.35);
+      padding: 3rem;
+      border-radius: 20px;
+    }
+
+    button {
+      margin-top: 2rem;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      background: white;
+      color: #1d2b64;
+    }
+
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h1>January</h1>
+    <p id="message">
+      Dear, Ladybug. Here is what I have been working on these last few weeks (with lots of help from my friend ChatGPT).<br><br>
+      Because we'll be apart for most of the month of january, I wanted to make you something that would make our days apart feel less distant. <br><br> A while ago, you said something about wanting to know more about the music I listen to. Well, I made you an advent calendar. One song a day, for the entire month of January. <br><br> There is no theme or genre. Most of them are just what I've been listening to recently, which happens to be lots of old canadian bands my Dad showed me. <br><br>I have also added brief descriptions/backgrounds for each song. The first few days have a further listening page but that was a pain in the ass to code and I didn't have enough time to do all of them, so I will send you the rest of the further listening songs by text on the day of.  I love you dearly, and I hope you enjoy. 
+
+    <button id="enterBtn" disabled>
+      Come back January 1st
+    </button>
+  </div>
+
+  <script>
+    const today = new Date();
+    const isJanuary =
+      today.getMonth() === 0 && today.getDate() >= 1;
+
+    const button = document.getElementById("enterBtn");
+    const message = document.getElementById("message");
+
+    if (isJanuary) {
+      button.disabled = false;
+      button.textContent = "Enter";
+      message.innerHTML = `
+      Dear, Ladybug. Here is what I have been working on these last few weeks (with lots of help from my friend ChatGPT).<br><br>
+      Because we'll be apart for most of the month of january, I wanted to make you something that would make our days apart feel less distant. <br><br> A while ago, you said something about wanting to know more about the music I listen to. Well, I made you an advent calendar. One song a day, for the entire month of January. <br><br> There is no theme or genre. Most of them are just what I've been listening to recently, which happens to be lots of old canadian bands my Dad showed me. <br><br>I have also added brief descriptions/backgrounds for each song. The first few days have a further listening page but that was a pain in the ass to code and I didn't have enough time to do all of them, so I will send you the rest of the further listening songs by text on the day of.  I love you dearly, and I hope you enjoy.
+      `;
+
+      button.onclick = () => {
+        window.location.href = "calendar.html";
+      };
+    }
+  </script>
+
+</body>
+</html>
